@@ -32,10 +32,18 @@ an upstream one. Rebuilding one without the other is the mistake this line exist
 
 ### Building here
 
-- `node_modules` is a symlink to `~/.cache/happier-build/node_modules`, and Yarn must run with
-  `YARN_CACHE_FOLDER=~/.cache/happier-build/yarn`. Both live on the NVMe system disk because
-  `/srv/bernard` is a 5400 rpm SMR drive (see `/srv/bernard/home/HOST.md`). They are disposable —
-  deleting them costs only rebuild time.
+- Run Yarn with `YARN_CACHE_FOLDER=~/.cache/happier-build/yarn`. The cache (~11G) lives on the
+  NVMe system disk because `/srv/bernard` is a 5400 rpm SMR drive (see `/srv/bernard/home/HOST.md`).
+  It is disposable — deleting it costs only re-download time.
+- **`node_modules` must be a real directory inside the repo. Do not symlink it elsewhere.** Yarn
+  writes workspace links as *relative* paths (`agents -> ../../packages/agents`), so if
+  `node_modules` is a symlink to another filesystem location those resolve against *that* location,
+  every workspace link dangles, and the next install dies with
+  `EEXIST: file already exists, mkdir '.../node_modules/@happier-dev/agents'`. Cleaning does not
+  help; the layout is the bug. Redirecting the cache is the part that actually pays off.
+- A full install takes ~8.5 minutes on this host and links ~4.9G of small files onto the SMR disk.
+  Some optional native modules fail to build (`make ... Error 1`); yarn marks them optional and the
+  install still exits 0.
 - **Node 22 or newer is required.** `packages/relay-server` declares `engines.node >=22` while the
   root `package.json` declares nothing, so checking only the root reports a false all-clear. That
   is exactly how the first install here failed.
