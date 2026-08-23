@@ -268,7 +268,8 @@
         "EXPO_APP_SCHEME": "bernard-happier",
         "EXPO_PUBLIC_EAS_PROJECT_ID": "178f9e64-46f7-4e87-9376-a5c6bb40aa59",
         "EXPO_PUBLIC_HAPPY_SERVER_URL": "https://bernard.tail0ca34b.ts.net",
-        "EXPO_PUBLIC_HAPPIER_SERVER_URL": "https://bernard.tail0ca34b.ts.net"
+        "EXPO_PUBLIC_HAPPIER_SERVER_URL": "https://bernard.tail0ca34b.ts.net",
+        "SENTRY_DISABLE_AUTO_UPLOAD": "true"
       }
     }
   },
