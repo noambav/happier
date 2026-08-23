@@ -250,6 +250,26 @@
     },
     "canary-apk": {
       "extends": "internalpreview-apk"
+    },
+    "bernard": {
+      "extends": "base",
+      "autoIncrement": true,
+      "channel": "bernard",
+      "distribution": "store",
+      "ios": {
+        "resourceClass": "m-medium"
+      },
+      "env": {
+        "APP_ENV": "production",
+        "EXPO_APP_OWNER": "noambavli",
+        "EXPO_APP_SLUG": "bernard-happier",
+        "EXPO_APP_NAME": "Bernard",
+        "EXPO_APP_BUNDLE_ID": "dev.bavli.bernard.happier",
+        "EXPO_APP_SCHEME": "bernard-happier",
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "9c5d06a8-917e-4ab0-89d0-a0b28d485523",
+        "EXPO_PUBLIC_HAPPY_SERVER_URL": "https://bernard.tail0ca34b.ts.net",
+        "EXPO_PUBLIC_HAPPIER_SERVER_URL": "https://bernard.tail0ca34b.ts.net"
+      }
     }
   },
   "submit": {
@@ -293,6 +313,7 @@
         "track": "production",
         "releaseStatus": "draft"
       }
-    }
+    },
+    "bernard": {}
   }
 }
