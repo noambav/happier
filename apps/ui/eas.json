@@ -315,6 +315,16 @@
         "releaseStatus": "draft"
       }
     },
-    "bernard": {}
+    "bernard": {
+      "env": {
+        "APP_ENV": "production",
+        "EXPO_APP_OWNER": "noambavli",
+        "EXPO_APP_SLUG": "bernard-happier",
+        "EXPO_APP_NAME": "Bernard",
+        "EXPO_APP_BUNDLE_ID": "dev.bavli.bernard.happier",
+        "EXPO_APP_SCHEME": "bernard-happier",
+        "EXPO_PUBLIC_EAS_PROJECT_ID": "178f9e64-46f7-4e87-9376-a5c6bb40aa59"
+      }
+    }
   }
 }
